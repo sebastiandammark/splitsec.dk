@@ -17,6 +17,10 @@ var app = app = {};
 			this.startDefaults();
 		}
 	}
+
+	app.startDefaults = {
+		$('input[placeholder], textarea[placeholder]').placeholder();
+	}
 	
 	/* Initialize.
 	--------------------------------------------------------------------------------*/
