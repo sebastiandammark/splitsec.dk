@@ -31,7 +31,7 @@ module.exports = function(grunt) {
 	},
   	concat: {
 			js: {
-        src: ['app/scripts/**js', 'app/vendor/**/*.js'],
+        src: ['app/vendor/**/*.js', 'app/scripts/**js'],
         dest: 'public/js/app.js'
 			},
 			css: {
@@ -51,9 +51,10 @@ module.exports = function(grunt) {
 		copy: {
 	  	main: {
 	    	files: [
-	      	{expand: true, flatten: true, src: ['app/vendor/**/fonts/*.*'], dest: 'public/fonts/'},
+	      	{expand: true, flatten: true, src: ['app/vendor/**/*.{eot,woff,ttf,svg}'], dest: 'public/fonts/'},
 	      	{expand: true, flatten: true, src: ['app/vendor/**/*.{png,jpg,gif}'], dest: 'tmp/images/vendor/'},
-					{expand: true, flatten: true, src: ['app/markup/*.html'], dest: 'public/'}
+	      	{expand: true, flatten: true, src: ['app/images/**/*.svg'], dest: 'public/images/'},
+			{expand: true, flatten: true, src: ['app/markup/*.html'], dest: 'public/'}
 	    	]
 	  	},
 	  	dist: {
