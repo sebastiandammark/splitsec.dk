@@ -26,5 +26,20 @@ video {
 	box-sizing: border-box;
 	-webkit-touch-callout: none; // Disable long-press on links.
  	//-webkit-user-select: none; // Disable select/copy.
-  background-repeat: no-repeat;
+  	background-repeat: no-repeat;
+  	-webkit-font-smoothing: antialiased;
+}
+
+html, body {
+	@extend %signika;
+	margin: 0;
+	padding: 0;
+	border: none;
+	font-size: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	@extend %norwester;
+	margin: 0;
+	padding: 0;
 }

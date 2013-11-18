@@ -1,0 +1,26 @@
+div.amateurs section {
+	margin-top: 125px;
+	margin-bottom: 125px;
+
+	> div {
+		overflow: hidden;
+	}
+
+	img {
+		float: left;
+		margin-right: 20px;
+	}
+
+	h3 {
+		@include font-size(29px);
+		line-height: 1.5;
+		color: #575656;
+		font-style: italic;
+		margin-top: 10px;
+		margin-bottom: 40px;
+	}
+
+	p {
+		line-height: 1.5;
+	}
+}

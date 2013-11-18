@@ -1,0 +1,19 @@
+.who, .people, .important {
+	background: $reddish url('/images/45deg_scanlines.png') top left;
+	color: #fff;
+	padding: 125px 0;
+
+	h2, h3 {
+		text-align: center;
+	}
+
+	h2 {
+		@include font-size(173px);
+	}
+
+	h3 {
+		@extend %pragmaticaweb;
+		@include font-size(32px);
+		text-transform: none;
+	}
+}

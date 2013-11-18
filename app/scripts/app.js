@@ -14,12 +14,12 @@ var app = app = {};
 	
 	app.defaults = {
 		init: function() {
-			this.startDefaults();
+			$('input[placeholder], textarea[placeholder]').placeholder();
+			$('.flexslider').flexslider({
+				animation: 'slide',
+				controlNav: false
+			});
 		}
-	}
-
-	app.startDefaults = {
-		$('input[placeholder], textarea[placeholder]').placeholder();
 	}
 	
 	/* Initialize.

@@ -1,0 +1,67 @@
+.locations {
+	background: #262627 url('/images/45deg_scanlines.png') top left;
+
+	section {
+		text-align: center;
+		padding: 40px 0 20px;
+	}
+
+	section > h3 {
+		@include font-size(39px);
+		position: relative;
+		z-index: 10;
+		line-height: 1.6;
+		display: inline-block;
+		background: $reddish;
+		height: 58px;
+		padding: 0 125px;
+		margin-bottom: 40px;
+		color: #fff;
+		
+
+		&:before, &:after {
+			content: '';
+			background-image: url('/images/locations_snippets.png');
+			background-repeat: no-repeat;
+			width: 94px;
+			height: 51px;
+			top: 3px;
+			display: block;
+			position: absolute;
+		}
+
+		&:before {
+			background-position: top left;
+			left: -54px;
+		}
+
+		&:after {
+			background-position: bottom right;
+			right: -53px;
+		}
+	}
+
+	ul, ul li {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	ul li {
+		display: inline-block;
+		vertical-align: top;
+
+		&:nth-child(2) {
+			margin: 0 100px;
+		}
+
+		img {
+			border-radius: 70px;
+		}
+
+		h3 {
+			color: #fff;
+			margin-top: 20px;
+		}
+	}
+}

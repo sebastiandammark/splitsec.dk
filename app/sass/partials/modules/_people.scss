@@ -1,0 +1,52 @@
+.people {
+	padding-bottom: 0px;
+
+	section {
+		padding-bottom: 100px
+	}
+
+	section.sub {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	ul, ul li {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	ul {
+		max-width: 1000px;
+		margin: 0 auto;
+		text-align: center;
+
+		li {
+			margin-top: -80px;
+			padding: 0 20px;
+		}
+	}
+
+	li {
+		display: inline-block;
+		width: 24%;
+		color: #727272;
+		vertical-align: top;
+
+		img {
+			border-radius: 70px;
+		}
+
+		h4 {
+			color: $reddish;
+			margin-top: 15px;
+		}
+
+		p {
+			line-height: 1.5;
+			text-align: left;
+		}
+	}
+}

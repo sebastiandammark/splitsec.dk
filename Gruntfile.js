@@ -12,31 +12,31 @@ module.exports = function(grunt) {
 			}
 		},
 		sass: {
-		dev: {
-			options: {
-				style: 'expanded'
+			dev: {
+				options: {
+					style: 'expanded'
+				},
+				files: {
+					'tmp/css/concat/styles.css': 'app/sass/styles.scss'
+				}
 			},
-			files: {
-				'tmp/css/concat/styles.css': 'app/sass/styles.scss'
+			dist: {
+				options: {
+					style: 'compressed'
+				},
+				files: {
+					'tmp/css/concat/styles.css': 'app/sass/styles.scss'
+				}
 			}
 		},
-		dist: {
-			options: {
-				style: 'compressed'
-			},
-			files: {
-				'tmp/css/concat/styles.css': 'app/sass/styles.scss'
-			}
-		}
-	},
-  	concat: {
+	  	concat: {
 			js: {
-        src: ['app/vendor/**/*.js', 'app/scripts/**js'],
-        dest: 'public/js/app.js'
+	    		src: ['app/vendor/**/*.js', 'app/scripts/**js'],
+	    		dest: 'public/js/app.js'
 			},
 			css: {
-      	src: ['tmp/css/concat/styles.css', 'app/vendor/**/*.css'],
-        dest: 'tmp/css/prefix/styles.css'
+	  			src: ['tmp/css/concat/styles.css', 'app/vendor/**/*.css'],
+	    		dest: 'tmp/css/prefix/styles.css'
 			}
 		},
 		autoprefixer: {
@@ -49,19 +49,19 @@ module.exports = function(grunt) {
 			}
 		},
 		copy: {
-	  	main: {
-	    	files: [
-	      	{expand: true, flatten: true, src: ['app/vendor/**/*.{eot,woff,ttf,svg}'], dest: 'public/fonts/'},
-	      	{expand: true, flatten: true, src: ['app/vendor/**/*.{png,jpg,gif}'], dest: 'tmp/images/vendor/'},
-	      	{expand: true, flatten: true, src: ['app/images/**/*.svg'], dest: 'public/images/'},
-			{expand: true, flatten: true, src: ['app/markup/*.html'], dest: 'public/'}
-	    	]
-	  	},
-	  	dist: {
-	    	files: [
-					{expand: true, flatten: false, cwd: 'public/', src: ['**/*'], dest: 'dist/'}
-	    	]
-	  	}
+		  	main: {
+		    	files: [
+		      	{expand: true, flatten: true, src: ['app/vendor/**/*.{eot,woff,ttf,svg}'], dest: 'public/fonts/'},
+		      	{expand: true, flatten: true, src: ['app/vendor/**/*.{png,jpg,gif}'], dest: 'tmp/images/vendor/'},
+		      	{expand: true, flatten: true, src: ['app/images/**/*.svg'], dest: 'public/images/'},
+				{expand: true, flatten: true, src: ['app/markup/*.html'], dest: 'public/'}
+		    	]
+		  	},
+		  	dist: {
+		    	files: [
+						{expand: true, flatten: false, cwd: 'public/', src: ['**/*'], dest: 'dist/'}
+		    	]
+		  	}
 		},
 		imagemin: {
 			vendor: {
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
 					dest: 'public/images/'
 				}]
 			}
-  	},
+	  	},
 		min: {
 		    dist: {
 		        src: ['public/js/app.js'],
@@ -94,12 +94,25 @@ module.exports = function(grunt) {
 		    }
 		},
 		clean: ['tmp'],
+		'ftp-deploy': {
+			stage: {
+			    auth: {
+			      	host: '192.168.2.100',
+			      	port: 21,
+			      	authKey: 'stage'
+			    },
+		    	src: 'dist',
+		    	dest: 'Web/splitsec',
+		    	exclusions: ['dist/**/.DS_Store', 'dist/**/Thumbs.db'],
+		    	server_sep: '/'
+		  	}
+		},
 		watch: {
 			main: {
 	    	files: ['app/**/*.{html,js,scss}'],
 	    	tasks: ['build']
 	  	}
-		}
+	}
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -117,7 +130,6 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('build', ['sass:dev', 'concat', 'autoprefixer', 'copy:main', 'imagemin', 'clean']);
-  grunt.registerTask('dist', ['build', 'copy:dist', 'min', 'cssmin', 'clean']);
+  grunt.registerTask('dist', ['build', 'copy:dist', 'min', 'cssmin', 'ftp-deploy:stage', 'clean']);
   grunt.registerTask('server', ['connect', 'build', 'watch']);
-
 };

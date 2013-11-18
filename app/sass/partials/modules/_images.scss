@@ -1,0 +1,53 @@
+.images {
+	padding: 55px 0;
+
+	nav {
+		display: block;
+		text-align: right;
+		margin-bottom: 40px;
+
+		span, a {
+			@extend %pragmaticaweb;
+			@include font-size(10px);
+			display: inline-block;
+			line-height: 28px;
+			padding: 0 15px;
+		}
+
+		a {
+			background-color: #c0c0c0;
+			color: #fff;
+			margin: 0 5px;
+			text-decoration: none;
+
+			&:hover, &.active {
+				background-color: $reddish;
+			}
+
+			&:nth-child(5n) {
+				margin-right: 40px;
+			}
+		}
+	}
+
+	ul, ul li {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		font-size: 0px;
+	}
+
+	ul {
+		padding: 0 40px;
+
+		li  {
+			display: inline-block;
+			vertical-align: top;
+			margin: 0 40px 40px 0;
+
+			&:nth-child(4n) {
+				margin-right: 0px;
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+div.region {
+	width: 100%;
+
+	section {
+		max-width: 1000px;
+		margin: 0 auto;
+
+		&.sub {
+			background-color: #fff;
+		}
+	}
+}
