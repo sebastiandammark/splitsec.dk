@@ -1,0 +1,24 @@
+.footer {
+	background: #262627 url('/images/45deg_scanlines.png') top left;
+
+	section{
+		max-width: 1000px;
+		margin: 0 auto;
+		position: relative;
+		
+
+		footer:after {
+			@include pe-background(logo);
+			content: '';
+			width: 113px;
+			height: 124px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			position: absolute;
+			z-index: 11;
+			top: 7px;
+			left: 25px;
+		}
+	}
+}

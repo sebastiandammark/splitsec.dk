@@ -1,0 +1,51 @@
+.contact section {
+	padding: 80px 40px;
+
+	h3 {
+		@include pem(39px);
+	}
+
+	p {
+		line-height: 1.6;
+	}
+
+	form {
+		font-size: 0px;
+		width: 100%;
+		text-align: center;
+	}
+
+	form, input, textarea {
+		margin: 0;
+		padding: 0;
+		display: inline-block;
+	}
+
+	input, textarea {
+		background: transparent;
+		border: 1px solid #ebebeb;
+		line-height: 48px;
+		width: 47%;
+		padding: 0 10px;
+		margin: 0 10px;
+	}
+
+	textarea {
+		width: 96%;
+		margin: 20px 10px;
+		line-height: 1;
+		height: 96px;
+	}
+
+	input.submitter {
+		background-color: $reddish;
+		border: none;
+		text-transform: uppercase;
+		color: #fff;
+		line-height: 28px;
+		width: auto;
+		padding: 0 15px;
+		float: left;
+		margin-left: 20px;
+	}
+}

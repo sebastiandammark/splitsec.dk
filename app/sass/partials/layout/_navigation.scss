@@ -1,51 +1,82 @@
-.header header {
-	position: absolute;
-	width: 100%;
-	background: rgba(0,0,0,0.75) url('/images/header_nav_bg.png') top left repeat-x;
-	z-index: 10;
+.header {
+	header {
+		position: absolute;
+		top: 0px;
+		width: 100%;
+		background: rgba(0,0,0,0.75) url('/images/header_nav_bg.png') top left repeat-x;
+		z-index: 10;
 
-	nav {
-		position: relative;
-		max-width: 1000px;
-		margin: 0 auto;
-		height: 87px;
-		padding-left: 175px;
+		nav {
+			position: relative;
+			max-width: 1000px;
+			margin: 0 auto;
+			height: 55px;
 
-		&:before {
-			@include pe-background(logo);
-			content: '';
-			width: 113px;
-			height: 124px;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: contain;
-			position: absolute;
-			z-index: 11;
-			top: 7px;
-			left: 25px;
-		}
-
-		a {
-			@extend %norwester;
-			@include font-size(14px);
-			display: inline-block;
-			vertical-align: top;
-			text-decoration: none;
-			line-height: 87px;
-			margin: 0 14px;
-
-			span {
-				color: #fff;
-				padding: 0 3px 3px 3px;
+			@include at-least($bp1) {
+				height: 87px;
+				padding-left: 175px;
 			}
+			
 
-			&:hover {
-				text-decoration: none;
+			&:before {
+				@include pe-background(logo);
+				content: '';
+				width: 113px;
+				height: 124px;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				position: absolute;
+				z-index: 11;
+				top: 7px;
+				left: 25px;
+				display: none;
 
-				span {
-					border-bottom: 1px solid $reddish;
+				@include at-least($bp1) {
+					display: block;
 				}
 			}
+
+			a {
+				@extend %norwester;
+				@include pem(14px);
+				display: inline-block;
+				vertical-align: top;
+				text-decoration: none;
+				line-height: 55px;
+				text-align: center;
+
+				@include until($bp1) {
+					width: 24%;
+				}
+
+				@include at-least($bp1) {
+					margin: 0 14px;
+					line-height: 87px;
+				}
+
+				span {
+					color: #fff;
+
+					@include at-least($bp1) {
+						padding: 0 3px 3px 3px;
+
+						&:hover {
+							text-decoration: none;
+
+							span {
+								border-bottom: 1px solid $reddish;
+							}
+						}
+					}
+				}
+			}
+		}	
+	}
+
+	div.flexslider {
+		@include until($bp1) {
+			margin-top: 55px;
 		}
-	}	
+	}
 }

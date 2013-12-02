@@ -1,19 +1,42 @@
-.who, .people, .important {
+.who, .people, .important, .blogposts, .footer {
 	background: $reddish url('/images/45deg_scanlines.png') top left;
 	color: #fff;
-	padding: 125px 0;
+	padding: 50px 0;
 
 	h2, h3 {
 		text-align: center;
-	}
-
-	h2 {
-		@include font-size(173px);
+		@include pem(50px);
 	}
 
 	h3 {
 		@extend %pragmaticaweb;
-		@include font-size(32px);
+		@include pem(20px);
 		text-transform: none;
+	}
+
+	@include at-least($bp1) {
+		padding: 100px 0;
+		
+		h2 {
+			@include pem(105px);
+		}
+
+		h3 {
+			@include pem(30px);
+		}
+	}
+
+	@include at-least($bp2) {
+		
+	}
+
+	@include at-least($bp3) {
+		h2 {
+			@include pem(173px);
+		}
+
+		h3 {
+			@include pem(48px);
+		}
 	}
 }

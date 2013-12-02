@@ -42,4 +42,29 @@ h1, h2, h3, h4, h5, h6 {
 	@extend %norwester;
 	margin: 0;
 	padding: 0;
+	font-weight: normal;
+}
+
+body:after {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	line-height: 30px;
+	font-size: pem(30px);
+	color: #fff;
+	text-align: center;
+	z-index: 100;
+
+	@include until($bp1) {
+		content: 'Break point: bp1';
+	}
+
+	@include at-least($bp1) {
+		content: 'Break point: bp2';
+	}
+
+	@include at-least($bp2) {
+		content: 'Break point: bp3';
+	}
 }

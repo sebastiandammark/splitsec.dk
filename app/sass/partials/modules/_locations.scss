@@ -7,16 +7,20 @@
 	}
 
 	section > h3 {
-		@include font-size(39px);
 		position: relative;
 		z-index: 10;
-		line-height: 1.6;
 		display: inline-block;
 		background: $reddish;
 		height: 58px;
-		padding: 0 125px;
+		line-height: 58px;
 		margin-bottom: 40px;
 		color: #fff;
+		@include pem(16px);
+		padding: 0 50px;
+
+		@include at-least($bp1) {
+			@include pem(39px);
+		}
 		
 
 		&:before, &:after {
@@ -48,12 +52,8 @@
 	}
 
 	ul li {
-		display: inline-block;
+		display: block;
 		vertical-align: top;
-
-		&:nth-child(2) {
-			margin: 0 100px;
-		}
 
 		img {
 			border-radius: 70px;
@@ -61,7 +61,21 @@
 
 		h3 {
 			color: #fff;
-			margin-top: 20px;
+			margin: 20px 0 0 0;
+		}
+
+		@include at-least($bp2) {
+			display: inline-block;
+			
+			&:nth-child(2) {
+				margin: 0 100px;
+			}
+		}
+
+		@include until($bp2) {
+			h3 {
+				margin: 10px 0 30px;	
+			}
 		}
 	}
 }

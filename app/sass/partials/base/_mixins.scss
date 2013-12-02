@@ -1,29 +1,20 @@
 /* Media Queries
 --------------------------------------------------------------------------------*/
 @mixin until($bp) {
-  @if not $oldie {
-    @media only screen and (max-width: em($bp - 1px)) {
-      @content;
-    }
+  @media only screen and (max-width: $bp - 1px) {
+    @content;
   }
 }
 
 @mixin between($bp1, $bp2) {
-  @if not $oldie {
-    @media only screen and (min-width: em($bp1)) and (max-width: em($bp2 - 1px)) {
-      @content;
-    }
+  @media only screen and (min-width: $bp1) and (max-width: $bp2 - 1px) {
+    @content;
   }
 }
 
 @mixin at-least($bp) {
-  @if $oldie {
+  @media only screen and (min-width: $bp) {
     @content;
-  }
-  @else {
-    @media only screen and (min-width: em($bp)) {
-      @content;
-    }
   }
 }
 
@@ -205,7 +196,7 @@
   }
 }
 
-@mixin font-size($to-size, $from-size: $base-font-size) {
+@mixin pem($to-size, $from-size: $base-font-size) {
   font-size: 1em * $to-size / $from-size;
 }
 

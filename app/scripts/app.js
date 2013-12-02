@@ -19,6 +19,12 @@ var app = app = {};
 				animation: 'slide',
 				controlNav: false
 			});
+			
+			$('.blogslider').flexslider({
+				animation: 'slide',
+				controlNav: false,
+				initDelay: 3000,
+			});
 		}
 	}
 	

@@ -8,7 +8,7 @@
 
 		span, a {
 			@extend %pragmaticaweb;
-			@include font-size(10px);
+			@include pem(10px);
 			display: inline-block;
 			line-height: 28px;
 			padding: 0 15px;
@@ -19,6 +19,7 @@
 			color: #fff;
 			margin: 0 5px;
 			text-decoration: none;
+			text-transform: uppercase;
 
 			&:hover, &.active {
 				background-color: $reddish;
